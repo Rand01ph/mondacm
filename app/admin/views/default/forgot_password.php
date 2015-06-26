@@ -14,6 +14,7 @@
         body {
             padding-bottom: 40px;
         }
+
         .sidebar-nav {
             padding: 9px 0;
         }
@@ -36,18 +37,18 @@
     <div class="well span5 center login-box">
         <?php
 
-        if ($this -> session -> flashdata('error')) {
-            $error = $this -> session -> flashdata('error');
+        if ($this->session->flashdata('error')) {
+            $error = $this->session->flashdata('error');
         }
 
-        if (function_exists ( 'validation_errors' ) && validation_errors () != '') {
-            $error = validation_errors ();
+        if (function_exists('validation_errors') && validation_errors() != '') {
+            $error = validation_errors();
         }
 
         ?>
         <!--表单开始-->
         <?php $attributes = array('class' => 'form-horizontal', 'name' => 'forgot_password_form');
-        echo form_open($this -> config -> item('admin_folder') . 'login/forgot_password', $attributes);
+        echo form_open($this->config->item('admin_folder') . 'login/forgot_password', $attributes);
         ?>
         <fieldset>
             <!--标题开始-->
@@ -55,24 +56,27 @@
                 <div class="span12 center login-header">
                     <h2><?php echo $title; ?></h2>
                 </div>
-            </div><!--/.标题结束-->
+            </div>
+            <!--/.标题结束-->
             <div class="control-group">
-                <label class="control-label" for="username"><?php echo lang('login_username');?></label>
+                <label class="control-label" for="username"><?php echo lang('login_username'); ?></label>
+
                 <div class="controls">
                     <?php
-                    $data = array (
+                    $data = array(
                         'id' => 'username',
                         'name' => 'username',
-                        'value' => set_value ( 'username', $username ),
-                        'class'=>'input-large span10',
-                        'autofocus'=>'autofocus'
+                        'value' => set_value('username', $username),
+                        'class' => 'input-large span10',
+                        'autofocus' => 'autofocus'
                     );
-                    echo form_input ( $data );
+                    echo form_input($data);
                     ?>
 
                 </div>
             </div>
             <input type="hidden" value="submitted" name="submitted"/>
+
             <p class="center span3">
                 <button type="submit" class="btn btn-primary">
                     <?php echo lang('next_button'); ?>
@@ -90,8 +94,9 @@
         <?php form_close(); ?>
         <!--/.表单结束-->
         <br/>
+
         <div style="text-align:center;">
-            <a href="<?php echo site_url($this -> config -> item('admin_folder').'login'); ?>"><?php echo lang('return_login');?></a>
+            <a href="<?php echo site_url($this->config->item('admin_folder') . 'login'); ?>"><?php echo lang('return_login'); ?></a>
         </div>
     </div>
 </div>

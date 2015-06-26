@@ -27,4 +27,14 @@
 
 </form>
 </body>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/web/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/assets/web/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/assets/web/js/DD_belatedPNG.js"></script>
+<script type="text/javascript" src="/assets/web/js/ind.js"></script>
+<script type="text/javascript" src="/assets/web/js/jquery.prettyPhoto.js"></script>
 </html>

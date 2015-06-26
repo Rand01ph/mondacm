@@ -13,18 +13,20 @@
     <link rel="shortcut icon" href="/assets/admin/default/img/favicon.ico">
 
     <style type=text/css>
-        html,body,div,p,span,h3,ol,li {
+        html, body, div, p, span, h3, ol, li {
             padding: 0;
             margin: 0;
         }
-        ol,li{
+
+        ol, li {
             list-style-type: none;
             list-style-image: none;
         }
 
-        html,body,.main {
+        html, body, .main {
             height: 100%;
         }
+
         .main {
             height: 100%;
             font-family: "微软雅黑", "宋体";
@@ -37,7 +39,7 @@
         }
 
         .result {
-            padding:110px 0 80px 0;
+            padding: 110px 0 80px 0;
             background: #008ead;
         }
 
@@ -50,6 +52,7 @@
             font-size: 22px;
             font-weight: bold;
         }
+
         .result div {
             color: #e8e8e8;
         }
@@ -75,7 +78,7 @@
             font-size: 16px;
         }
 
-        .explain p{
+        .explain p {
             margin-top: 10px;
         }
 
@@ -88,7 +91,7 @@
 
         (function () {
             var ie = !-[1,];
-            if(!ie){
+            if (!ie) {
                 location.href = "<?php echo site_url($this -> config -> item('admin_folder').'login/oops'); ?>";
             }
             if (navigator.userAgent.indexOf("MSIE 8.") > 0) {
@@ -112,7 +115,7 @@
 
 <div class=main>
     <div class=result>
-        <div  style="text-align: center;padding: 10px 0 20px 0;">
+        <div style="text-align: center;padding: 10px 0 20px 0;">
             <img src="/assets/admin/default/img/oops/ie-old.png" alt="ie-old" style="width:70px;height:70px;">
         </div>
         <div class=con>
@@ -137,7 +140,7 @@
             </a>
             <a href="http://windows.microsoft.com/zh-CN/internet-explorer/products/ie/home"
                style="margin:10px;width:70px;height:70px;">
-                <img src="/assets/admin/default/img/oops/ie9.png" title="ie"alt="ie" style="width:70px;height:70px;">
+                <img src="/assets/admin/default/img/oops/ie9.png" title="ie" alt="ie" style="width:70px;height:70px;">
                 <span>更高版本的IE</span>
             </a>
         </div>
@@ -159,6 +162,7 @@
     <div class=explain>
         <div class=con>
             <h3 style="text-align: left;">以下浏览器我们完美支持：</h3>
+
             <p>1. <a href="http://down.360safe.com/se/360se6_setup.exe">360安全浏览器</a>、<a
                     href="http://down.360safe.com/cse/360cse_7.5.3.126.exe">360极速浏览器</a> &nbsp;&nbsp;<a
                     href="http://www.360.cn/" target="_blank">去官网免费下载</a></p>
@@ -171,8 +175,9 @@
                     href="http://wap.uc.cn/index.php?action=PackageDown&do=ByPfid&product=UCBrowser&pfid=101&lang=zh-cn&bid=999&direct=true&from=web_banner">UC浏览器</a>
                 &nbsp;&nbsp;<a href="http://www.uc.cn/" target="_blank">去官网免费下载</a></p>
 
-            <p>4. <a href="http://dl.maxthon.cn/mx4/mx4.3.2.1000cn.exe">遨游云浏览器</a>&nbsp;&nbsp; <a href="http://www.maxthon.cn/"
-                                                                                                  target="_blank">去官网免费下载</a>
+            <p>4. <a href="http://dl.maxthon.cn/mx4/mx4.3.2.1000cn.exe">遨游云浏览器</a>&nbsp;&nbsp; <a
+                    href="http://www.maxthon.cn/"
+                    target="_blank">去官网免费下载</a>
             </p>
 
             <p>5. <a href="http://cd001.www.duba.net/duba/install/2011/ever/kavsetup140113_99_53.exe">猎豹浏览器</a> &nbsp;&nbsp;<a

@@ -1,6 +1,6 @@
 <?php
-if (! defined ( 'BASEPATH' ))
-	exit ( 'No direct script access allowed' );
+if (!defined('BASEPATH'))
+    exit ('No direct script access allowed');
 
 /**
  * 后台模块管理模型
@@ -9,15 +9,17 @@ if (! defined ( 'BASEPATH' ))
  * @author 二　阳°(QQ:707069100)
  * @link http://weibo.com/513778937?topnav=1&wvr=5
  */
-class Mode_model extends Base_model {
+class Mode_model extends Base_model
+{
 
-    var $model_table='mode';
+    var $model_table = 'mode';
 
-	function __construct() {
-		parent::__construct ();
-	}
-	
-	// ------------------------------------------------------------------------
+    function __construct()
+    {
+        parent::__construct();
+    }
+
+    // ------------------------------------------------------------------------
 
 
     /**
@@ -26,8 +28,9 @@ class Mode_model extends Base_model {
      * @access public
      * @return object
      */
-    public function get_mode_data($name=fasle) {
-        return $this->db->select ( 'id, name' )->where ( 'name', $name)->where ( 'status =', 1 )->order_by ( 'rank asc' )->get ( $this->db->dbprefix ( $this->model_table ) )->result ();
+    public function get_mode_data($name = fasle)
+    {
+        return $this->db->select('id, name')->where('name', $name)->where('status =', 1)->order_by('rank asc')->get($this->db->dbprefix($this->model_table))->result();
     }
 
     // ------------------------------------------------------------------------

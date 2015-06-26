@@ -6,12 +6,12 @@ if (!defined('BASEPATH'))
  *
  * An open source application development framework for PHP 5.1.6 or newer
  *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
+ * @package        CodeIgniter
+ * @author        ExpressionEngine Dev Team
+ * @copyright    Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @license        http://codeigniter.com/user_guide/license.html
+ * @link        http://codeigniter.com
+ * @since        Version 1.0
  * @filesource
  */
 
@@ -20,13 +20,14 @@ if (!defined('BASEPATH'))
 /**
  * Pagination Class
  *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Pagination
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/libraries/pagination.html
+ * @package        CodeIgniter
+ * @subpackage    Libraries
+ * @category    Pagination
+ * @author        ExpressionEngine Dev Team
+ * @link        http://codeigniter.com/user_guide/libraries/pagination.html
  */
-class Mypagination {
+class Mypagination
+{
 
     //基本链接地址
     var $base_url = '';
@@ -114,9 +115,10 @@ class Mypagination {
     var $custom_cur_page = 0;
 
 
-    function __construct() {
+    function __construct()
+    {
 
-        $this -> Mypagination();
+        $this->Mypagination();
 
     }
 
@@ -126,15 +128,16 @@ class Mypagination {
      * @access public
      */
 
-    function Mypagination() {
+    function Mypagination()
+    {
 
         if (file_exists(APPPATH . 'config/pagination.php')) {
 
-            require_once (APPPATH . 'config/pagination.php');
+            require_once(APPPATH . 'config/pagination.php');
 
             foreach ($config as $key => $val) {
 
-                $this -> {$key} = $val;
+                $this->{$key} = $val;
 
             }
 
@@ -153,15 +156,16 @@ class Mypagination {
      * @param <array> $params 待初始化的参数
      */
 
-    function init($params = array()) {
+    function init($params = array())
+    {
 
         if (count($params) > 0) {
 
             foreach ($params as $key => $val) {
 
-                if (isset($this -> $key)) {
+                if (isset($this->$key)) {
 
-                    $this -> $key = $val;
+                    $this->$key = $val;
 
                 }
 
@@ -181,10 +185,11 @@ class Mypagination {
      * @return <string> $output
      */
 
-    function create_links($show_info = false, $top_info = false) {
+    function create_links($show_info = false, $top_info = false)
+    {
 
         //如果没有记录或者每页条数为0,则返回空
-        if ($this -> total_rows == 0 || $this -> per_page == 0) {
+        if ($this->total_rows == 0 || $this->per_page == 0) {
 
             return '';
 
@@ -192,7 +197,7 @@ class Mypagination {
 
         //计算总页数
 
-        $num_pages = ceil($this -> total_rows / $this -> per_page);
+        $num_pages = ceil($this->total_rows / $this->per_page);
 
         //只有一页,返回空
 
@@ -206,52 +211,52 @@ class Mypagination {
 
         //获取当前页编号
 
-        if ($CI -> config -> item('enable_query_strings') === TRUE || $this -> page_query_string === TRUE) {
+        if ($CI->config->item('enable_query_strings') === TRUE || $this->page_query_string === TRUE) {
 
-            if ($CI -> input -> get($this -> query_string_segment) != 0) {
+            if ($CI->input->get($this->query_string_segment) != 0) {
 
-                $this -> cur_page = $CI -> input -> get($this -> query_string_segment);
+                $this->cur_page = $CI->input->get($this->query_string_segment);
 
-                $this -> cur_page = (int)$this -> cur_page;
+                $this->cur_page = (int)$this->cur_page;
 
             }
 
         } else {
 
-            if (intval($this -> custom_cur_page) > 0) {
+            if (intval($this->custom_cur_page) > 0) {
 
-                $this -> cur_page = (int)$this -> custom_cur_page;
+                $this->cur_page = (int)$this->custom_cur_page;
 
             } else {
 
-                $uri_segment = $CI -> uri -> segment($this -> uri_segment, 0);
+                $uri_segment = $CI->uri->segment($this->uri_segment, 0);
 
                 if (!empty($uri_segment)) {
 
-                    $this -> cur_page = $uri_segment;
+                    $this->cur_page = $uri_segment;
 
                     //如果有下划线
 
-                    if ($this -> underline_uri_seg >= 0) {
+                    if ($this->underline_uri_seg >= 0) {
 
-                        if (strpos($this -> cur_page, '-') !== false) {
+                        if (strpos($this->cur_page, '-') !== false) {
 
-                            $arr = explode('-', $this -> cur_page);
+                            $arr = explode('-', $this->cur_page);
 
                         } else {
 
-                            $arr = explode('_', $this -> cur_page);
+                            $arr = explode('_', $this->cur_page);
 
                         }
 
-                        $this -> cur_page = $arr[$this -> underline_uri_seg];
+                        $this->cur_page = $arr[$this->underline_uri_seg];
 
                         unset($arr);
 
                     }
 
 
-                    $this -> cur_page = (int)$this -> cur_page;
+                    $this->cur_page = (int)$this->cur_page;
 
                 }
 
@@ -261,41 +266,41 @@ class Mypagination {
 
         //左右显示的页码个数
 
-        $this -> num_links = (int)$this -> num_links;
+        $this->num_links = (int)$this->num_links;
 
-        if ($this -> num_links < 1) {
+        if ($this->num_links < 1) {
 
             show_error('Your number of links must be a positive number.');
 
         }
 
-        if (!is_numeric($this -> cur_page) || $this -> cur_page < 1) {
+        if (!is_numeric($this->cur_page) || $this->cur_page < 1) {
 
-            $this -> cur_page = 1;
+            $this->cur_page = 1;
 
         }
 
         //如果当前页数大于总页数,则赋值给当前页数最大值
 
-        if ($this -> cur_page > $num_pages) {
+        if ($this->cur_page > $num_pages) {
 
-            $this -> cur_page = $num_pages;
+            $this->cur_page = $num_pages;
 
         }
 
-        if ($CI -> config -> item('enable_query_strings') === TRUE || $this -> page_query_string === TRUE) {
+        if ($CI->config->item('enable_query_strings') === TRUE || $this->page_query_string === TRUE) {
 
-            $this -> base_url = rtrim($this -> base_url) . '&' . $this -> query_string_segment . '=';
+            $this->base_url = rtrim($this->base_url) . '&' . $this->query_string_segment . '=';
 
         } else {
 
-            $this -> base_url = rtrim($this -> base_url, '/') . '/';
+            $this->base_url = rtrim($this->base_url, '/') . '/';
 
         }
 
-        if (strpos($this -> base_url, "{page}") !== false) {
+        if (strpos($this->base_url, "{page}") !== false) {
 
-            $this -> page_mode = 'replace';
+            $this->page_mode = 'replace';
 
         }
 
@@ -305,7 +310,7 @@ class Mypagination {
 
         if ($show_info) {
 
-            $output = " 共<b>" . $this -> total_rows . "</b>条记录 <span style='color:#ff0000;font-weight:bold'>{$this->cur_page}</span>/<b>" . $num_pages . "</b>页 每页<b>{$this->per_page}</b>条 ";
+            $output = " 共<b>" . $this->total_rows . "</b>条记录 <span style='color:#ff0000;font-weight:bold'>{$this->cur_page}</span>/<b>" . $num_pages . "</b>页 每页<b>{$this->per_page}</b>条 ";
 
         }
 
@@ -313,7 +318,7 @@ class Mypagination {
 
         if ($top_info) {
 
-            $top_output = " 共 <b>" . $this -> total_rows . "</b> 条记录 第<span style='color:#ff0000;font-weight:bold'>{$this->cur_page}</span>页/共<b>" . $num_pages . "</b>页 ";
+            $top_output = " 共 <b>" . $this->total_rows . "</b> 条记录 第<span style='color:#ff0000;font-weight:bold'>{$this->cur_page}</span>页/共<b>" . $num_pages . "</b>页 ";
 
         }
 
@@ -327,12 +332,12 @@ class Mypagination {
 
         //显示上一页
 
-        if (!empty($this -> cur_page)) {
-            $j = $this -> cur_page - 1;
-            if ($j == 0){
-                $output .='<li class="active"><a href="#">' . $this -> prev_link . '</a>' . $this -> prev_tag_close;
-            }else{
-                $output .= $this -> prev_tag_open . '<a href="' . $this -> makelink($j) . '">' . $this -> prev_link . '</a>' . $this -> prev_tag_close;
+        if (!empty($this->cur_page)) {
+            $j = $this->cur_page - 1;
+            if ($j == 0) {
+                $output .= '<li class="active"><a href="#">' . $this->prev_link . '</a>' . $this->prev_tag_close;
+            } else {
+                $output .= $this->prev_tag_open . '<a href="' . $this->makelink($j) . '">' . $this->prev_link . '</a>' . $this->prev_tag_close;
             }
 
         }
@@ -341,7 +346,7 @@ class Mypagination {
 
         for ($i = 1; $i <= $num_pages; $i++) {
 
-            if ($i < $this -> cur_page - $this -> num_links || $i > $this -> cur_page + $this -> num_links) {
+            if ($i < $this->cur_page - $this->num_links || $i > $this->cur_page + $this->num_links) {
 
                 continue;
 
@@ -349,17 +354,16 @@ class Mypagination {
 
             //显示中间页数
 
-            if ($this -> cur_page == $i) {
+            if ($this->cur_page == $i) {
 
                 //当前页
 
 
-                $output .= '<li class="active"><a href="#">' . $i . '</a>' . $this -> num_tag_close;
-
+                $output .= '<li class="active"><a href="#">' . $i . '</a>' . $this->num_tag_close;
 
 
             } else {
-                $output .= $this -> num_tag_open . '<a href="'. $this -> makelink($i) .'">' . $i . '</a>' . $this -> num_tag_close;
+                $output .= $this->num_tag_open . '<a href="' . $this->makelink($i) . '">' . $i . '</a>' . $this->num_tag_close;
 
 
             }
@@ -367,14 +371,14 @@ class Mypagination {
 
         //显示下一页
 
-        if ($this -> cur_page < $num_pages) {
+        if ($this->cur_page < $num_pages) {
 
-            $k = $this -> cur_page + 1;
+            $k = $this->cur_page + 1;
 
-            $output .= $this -> next_tag_open . '<a href="' . $this -> makelink($k) . '">' . $this -> next_link . '</a>' . $this -> next_tag_close;
+            $output .= $this->next_tag_open . '<a href="' . $this->makelink($k) . '">' . $this->next_link . '</a>' . $this->next_tag_close;
 
-        }else{
-            $output .= '<li class="active"><a href="#">'. $this -> next_link . '</a>' . $this -> next_tag_close;
+        } else {
+            $output .= '<li class="active"><a href="#">' . $this->next_link . '</a>' . $this->next_tag_close;
         }
 
         //显示尾页
@@ -388,7 +392,7 @@ class Mypagination {
         $output = preg_replace("#([^:])//+#", "\\1/", $output);
 
 
-        $output = $this -> full_tag_open . $output . $this -> full_tag_close;
+        $output = $this->full_tag_open . $output . $this->full_tag_close;
 
         if ($top_info) {
 
@@ -409,25 +413,26 @@ class Mypagination {
      * @return <string>
      */
 
-    function makelink($str = '') {
+    function makelink($str = '')
+    {
 
-        if ($this -> page_mode == 'default') {
+        if ($this->page_mode == 'default') {
 
-            return $this -> _forsearch($this -> base_url . $str);
+            return $this->_forsearch($this->base_url . $str);
 
         } else {
 
-            $url = $this -> base_url;
+            $url = $this->base_url;
 
             if ($str == 1) {
 
-                $url = str_replace('/{page}', '', $this -> base_url);
+                $url = str_replace('/{page}', '', $this->base_url);
 
             }
 
             $url = str_replace("{page}", $str, $url);
 
-            return $this -> _forsearch($url);
+            return $this->_forsearch($url);
         }
 
     }
@@ -441,7 +446,8 @@ class Mypagination {
      * @return <string>
      */
 
-    function _forsearch($string) {
+    function _forsearch($string)
+    {
 
         $length = strlen($string) - 1;
 

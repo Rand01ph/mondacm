@@ -1,6 +1,6 @@
 <?php
 if (!defined('BASEPATH'))
-	exit('No direct script access allowed');
+    exit('No direct script access allowed');
 
 /*
  |--------------------------------------------------------------------------
@@ -203,13 +203,13 @@ $config['log_path'] = '';
  */
 $config['log_date_format'] = 'Y-m-d H:i:s';
 
- // 日志的级别  debug,info
- $config['log_threshold'] = 3;
+// 日志的级别  debug,info
+$config['log_threshold'] = 3;
 
- // 日志的输出地
- $config['log_routes'] = array(
- // 将debug,info级别的日志保存到文件
- 'file' => array('log_path' => realpath(APPPATH . 'logs'), 'log_levels' => 'debug,info'));
+// 日志的输出地
+$config['log_routes'] = array(
+    // 将debug,info级别的日志保存到文件
+    'file' => array('log_path' => realpath(APPPATH . 'logs'), 'log_levels' => 'debug,info'));
 
 /*
  |--------------------------------------------------------------------------

@@ -14,6 +14,7 @@
         body {
             padding-bottom: 40px;
         }
+
         .sidebar-nav {
             padding: 9px 0;
         }
@@ -36,16 +37,16 @@
     <div class="well span5 center login-box">
         <?php
 
-        if ($this -> session -> flashdata('message')) {
-            $message = $this -> session -> flashdata('message');
+        if ($this->session->flashdata('message')) {
+            $message = $this->session->flashdata('message');
         }
 
-        if ($this -> session -> flashdata('error')) {
-            $error = $this -> session -> flashdata('error');
+        if ($this->session->flashdata('error')) {
+            $error = $this->session->flashdata('error');
         }
 
-        if (function_exists ( 'validation_errors' ) && validation_errors () != '') {
-            $error = validation_errors ();
+        if (function_exists('validation_errors') && validation_errors() != '') {
+            $error = validation_errors();
         }
 
         ?>
@@ -56,27 +57,31 @@
                 <div class="span12 center login-header">
                     <h2><?php echo $title; ?></h2>
                 </div>
-            </div><!--/.标题结束-->
-            <?php if($check):?>
+            </div>
+            <!--/.标题结束-->
+            <?php if ($check): ?>
 
-             <div class="span12">
-                <div class="content">
-                    <p><?php echo lang('fail_url');?></p>
+                <div class="span12">
+                    <div class="content">
+                        <p><?php echo lang('fail_url'); ?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="center span4">
-               <?php echo lang('click');?> <a href="<?php echo site_url($this -> config -> item('admin_folder').'login/forgot_password');?>" target="_self">
-                    <?php echo lang('reapply'); ?></a> <?php echo lang('or');?><a href="<?php echo site_url($this -> config -> item('admin_folder').'login');?>" target="_self">
-                    <?php echo lang('return_index_page'); ?></a>
-            </div>
-            <hr/>
+                <div class="center span4">
+                    <?php echo lang('click'); ?> <a
+                        href="<?php echo site_url($this->config->item('admin_folder') . 'login/forgot_password'); ?>"
+                        target="_self">
+                        <?php echo lang('reapply'); ?></a> <?php echo lang('or'); ?><a
+                        href="<?php echo site_url($this->config->item('admin_folder') . 'login'); ?>" target="_self">
+                        <?php echo lang('return_index_page'); ?></a>
+                </div>
+                <hr/>
             <?php else: ?>
-            <?php
-            $attributes = array (
-                'class' => 'form-horizontal',
-                'id' => 'reset_pwd_form'
-            );
-                echo form_open ( $this->config->item ( 'admin_folder' ) . 'login/reset_new_pwd', $attributes );
+                <?php
+                $attributes = array(
+                    'class' => 'form-horizontal',
+                    'id' => 'reset_pwd_form'
+                );
+                echo form_open($this->config->item('admin_folder') . 'login/reset_new_pwd', $attributes);
                 ?>
                 <div class="center span10">
                     <span><?php echo lang('login_username'); ?>:</span>
@@ -86,14 +91,15 @@
                 <div class="center span10">
                     <div class="control-group">
                         <label class="control-label" for="new_password"><?php echo lang('new_password'); ?></label>
+
                         <div class="controls">
                             <?php
-                            $data = array (
+                            $data = array(
                                 'id' => 'new_password',
                                 'name' => 'new_password',
-                                'value' => set_value ( 'new_password', '' )
+                                'value' => set_value('new_password', '')
                             );
-                            echo form_password ( $data );
+                            echo form_password($data);
                             ?>
                             <span class="help-inline"><?php echo lang('password_length_span'); ?></span>
                         </div>
@@ -101,15 +107,17 @@
                 </div>
                 <div class="center span10">
                     <div class="control-group">
-                        <label class="control-label" for="new_password_fit"><?php echo lang('new_password_fit'); ?></label>
+                        <label class="control-label"
+                               for="new_password_fit"><?php echo lang('new_password_fit'); ?></label>
+
                         <div class="controls">
                             <?php
-                            $data = array (
+                            $data = array(
                                 'id' => 'new_password_fit',
                                 'name' => 'new_password_fit',
-                                'value' => set_value ( 'new_password_fit', '' )
+                                'value' => set_value('new_password_fit', '')
                             );
-                            echo form_password ( $data );
+                            echo form_password($data);
                             ?>
                             <span class="help-inline"><?php echo lang('password_length_span'); ?></span>
                         </div>
@@ -117,13 +125,13 @@
                 </div>
                 <div class="center span10">
                     <input type="hidden" value="submitted" name="submitted"/>
-                    <input type="hidden" value="<?php echo $submit_url;?>" name="submit_url"/>
+                    <input type="hidden" value="<?php echo $submit_url; ?>" name="submit_url"/>
                     <button type="submit" class="btn btn-primary">
                         <?php echo lang('finish'); ?>
                     </button>
                 </div>
                 <?php form_close(); ?>
-            <?php endif;?>
+            <?php endif; ?>
             <br/>
             <?php if (!empty($message)): ?>
                 <div class="alert alert-success" id="success_alert">

@@ -13,6 +13,7 @@
         body {
             padding-bottom: 40px;
         }
+
         .sidebar-nav {
             padding: 9px 0;
         }
@@ -35,21 +36,21 @@
     <div class="well span5 center login-box">
         <?php
 
-        if ($this -> session -> flashdata('message')) {
-            $message = $this -> session -> flashdata('message');
+        if ($this->session->flashdata('message')) {
+            $message = $this->session->flashdata('message');
         }
 
-        if ($this -> session -> flashdata('error')) {
-            $error = $this -> session -> flashdata('error');
+        if ($this->session->flashdata('error')) {
+            $error = $this->session->flashdata('error');
         }
 
-        if (function_exists ( 'validation_errors' ) && validation_errors () != '') {
-            $error = validation_errors ();
+        if (function_exists('validation_errors') && validation_errors() != '') {
+            $error = validation_errors();
         }
         ?>
         <!--表单开始-->
         <?php $attributes = array('class' => 'form-horizontal', 'name' => 'check_username_form');
-        echo form_open($this -> config -> item('admin_folder') . 'login/check_username', $attributes);
+        echo form_open($this->config->item('admin_folder') . 'login/check_username', $attributes);
         ?>
         <fieldset>
             <!--标题开始-->
@@ -57,36 +58,41 @@
                 <div class="span12 center login-header">
                     <h2><?php echo $title; ?></h2>
                 </div>
-            </div><!--/.标题结束-->
+            </div>
+            <!--/.标题结束-->
             <div class="control-group">
-                <label class="control-label"><?php echo lang('login_username');?></label>
+                <label class="control-label"><?php echo lang('login_username'); ?></label>
+
                 <div class="controls">
-                    <span class="span1"><?php echo $username;?></span>
+                    <span class="span1"><?php echo $username; ?></span>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label"><?php echo lang('username_to_email');?></label>
+                <label class="control-label"><?php echo lang('username_to_email'); ?></label>
+
                 <div class="controls">
-                    <span class="span1"><?php echo $email;?></span>
+                    <span class="span1"><?php echo $email; ?></span>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="register_email"><?php echo lang('register_email');?></label>
+                <label class="control-label" for="register_email"><?php echo lang('register_email'); ?></label>
+
                 <div class="controls">
                     <?php
-                    $data = array (
+                    $data = array(
                         'id' => 'register_email',
                         'name' => 'register_email',
-                        'value' => set_value ( 'register_email', $register_email ),
-                        'class'=>'input-large span10',
-                        'autofocus'=>'autofocus'
+                        'value' => set_value('register_email', $register_email),
+                        'class' => 'input-large span10',
+                        'autofocus' => 'autofocus'
                     );
-                    echo form_input ( $data );
+                    echo form_input($data);
                     ?>
 
                 </div>
             </div>
             <input type="hidden" value="submitted" name="submitted"/>
+
             <p class="center span4">
                 <button type="submit" class="btn btn-primary">
                     <?php echo $btn_span; ?>
@@ -111,8 +117,9 @@
         <?php form_close(); ?>
         <!--/.表单结束-->
         <br/>
+
         <div style="text-align:center;">
-            <a href="<?php echo site_url($this -> config -> item('admin_folder').'login/forgot_password'); ?>"><?php echo lang('return_one');?></a>
+            <a href="<?php echo site_url($this->config->item('admin_folder') . 'login/forgot_password'); ?>"><?php echo lang('return_one'); ?></a>
         </div>
     </div>
 </div>

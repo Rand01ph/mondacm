@@ -1,9 +1,9 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
  * 获取子类的编号
  * @author
- * 
+ *
  * @access   public
  * @param    number    当前类的编号值
  * @param    string    查询表
@@ -13,21 +13,18 @@
  */
 function children_ids($id, $table, $first_children = FALSE, $requisite_field = array('id', 'pid'))
 {
-	$CI = &get_instance();
-	if(!isset($CI->children_ids))
-	{
-		$CI->children_ids = array();
-	}
-	$children_datas = $CI->base_model->get_all($table, array($requisite_field[1] => $id), $requisite_field[0]);
-	foreach($children_datas as $data)
-	{
-		$CI->children_ids[] = $data[$requisite_field[0]];
-		if(!$first_children)
-		{
-			children_ids($data[$requisite_field[0]], $table, TRUE, $requisite_field);
-		}
-	}
-	return $CI->children_ids;
+    $CI = &get_instance();
+    if (!isset($CI->children_ids)) {
+        $CI->children_ids = array();
+    }
+    $children_datas = $CI->base_model->get_all($table, array($requisite_field[1] => $id), $requisite_field[0]);
+    foreach ($children_datas as $data) {
+        $CI->children_ids[] = $data[$requisite_field[0]];
+        if (!$first_children) {
+            children_ids($data[$requisite_field[0]], $table, TRUE, $requisite_field);
+        }
+    }
+    return $CI->children_ids;
 }
 // ------------------------------------------------------------------------
 /* End of file my_children_helper.php */

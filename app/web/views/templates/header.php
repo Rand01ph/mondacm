@@ -11,17 +11,8 @@
     <link href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/assets/web/css/prettyPhoto.css">
     <link href="/assets/web/css/css.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="/assets/web/js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="/assets/web/js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="/assets/web/js/DD_belatedPNG.js"></script>
-    <script type="text/javascript" src="/assets/web/js/ind.js"></script>
 </head>
 <body>
 

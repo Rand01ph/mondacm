@@ -14,6 +14,7 @@
         body {
             padding-bottom: 40px;
         }
+
         .sidebar-nav {
             padding: 9px 0;
         }
@@ -30,12 +31,12 @@
     <div class="well span5 center login-box">
         <?php
 
-        if ($this -> session -> flashdata('message')) {
-            $message = $this -> session -> flashdata('message');
+        if ($this->session->flashdata('message')) {
+            $message = $this->session->flashdata('message');
         }
 
-        if ($this -> session -> flashdata('error')) {
-            $error = $this -> session -> flashdata('error');
+        if ($this->session->flashdata('error')) {
+            $error = $this->session->flashdata('error');
         }
         ?>
 
@@ -45,16 +46,17 @@
                 <div class="span12 center login-header">
                     <h2><?php echo $title; ?></h2>
                 </div>
-            </div><!--/.标题结束-->
+            </div>
+            <!--/.标题结束-->
 
-             <div class="span12">
+            <div class="span12">
                 <div class="content">
-                    <p><b><?php echo $email_hint;?></b></p>
+                    <p><b><?php echo $email_hint; ?></b></p>
                 </div>
             </div>
 
             <div class="center span4">
-                <a href="<?php echo $email_url;?>" target="_blank" class="btn btn-large btn-primary">
+                <a href="<?php echo $email_url; ?>" target="_blank" class="btn btn-large btn-primary">
                     <?php echo lang('receive_email_hint'); ?></a>
             </div>
             <br/>
@@ -62,14 +64,18 @@
 
             <div class="container span12 ">
                 <div style="text-align:left;">
-                    <p class="text-left"><?php echo lang('hint');?></p>
+                    <p class="text-left"><?php echo lang('hint'); ?></p>
                     <br/>
-                    <p class="text-left"><?php echo lang('hint_one_row');?></p>
+
+                    <p class="text-left"><?php echo lang('hint_one_row'); ?></p>
                     <br/>
-                    <p class="text-left"><?php echo lang('hint_two_row');?><a href="<?php echo site_url($this -> config -> item('admin_folder').$email_url_a_hint); ?>"><?php echo $email_url_hint;?></a>。
+
+                    <p class="text-left"><?php echo lang('hint_two_row'); ?><a
+                            href="<?php echo site_url($this->config->item('admin_folder') . $email_url_a_hint); ?>"><?php echo $email_url_hint; ?></a>。
                     </p>
                     <br/>
-                    <p class="text-left"><?php echo $hint_three_row;?></p>
+
+                    <p class="text-left"><?php echo $hint_three_row; ?></p>
                     <br/>
                 </div>
             </div>

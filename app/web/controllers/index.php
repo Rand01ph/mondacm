@@ -1,6 +1,6 @@
 <?php
-if (! defined ( 'BASEPATH' ))
-	exit ( 'No direct script access allowed' );
+if (!defined('BASEPATH'))
+    exit ('No direct script access allowed');
 
 /**
  *首页控制器
@@ -8,26 +8,29 @@ if (! defined ( 'BASEPATH' ))
  * @author 　二　阳°(QQ:707069100)
  * @link http://weibo.com/513778937?topnav=1&wvr=5
  */
-class Index extends CI_Controller  {
+class Index extends CI_Controller
+{
 
-	
-	/**
-	 * 构造函数
-	 *
-	 * @access public
-	 * @return void
-	 */
-	function __construct() {
-		parent::__construct ();
+
+    /**
+     * 构造函数
+     *
+     * @access public
+     * @return void
+     */
+    function __construct()
+    {
+        parent::__construct();
 
     }
-	
-	// ------------------------------------------------------------------------
-	
-	/**
-	 * 默认入口
-	 */
-	function index() {
+
+    // ------------------------------------------------------------------------
+
+    /**
+     * 默认入口
+     */
+    function index()
+    {
         $this->load->view('templates/header');
         $this->load->view('index');
         $this->load->view('templates/footer');
